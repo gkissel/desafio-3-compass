@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "swagger": "ts-node src/swagger.ts",
-    "start": "ts-node src/index.ts",
+    "start": "ts-node src/server.ts",
     "test": "jest",
-    "dev": "ts-node-dev src/index.ts"
+    "dev": "ts-node-dev src/server.ts"
   },
   "keywords": [],
   "author": "",
