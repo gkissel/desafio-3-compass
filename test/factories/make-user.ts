@@ -13,7 +13,7 @@ export function makeUser(
       firstName: faker.person.firstName(),
       lastName: faker.person.lastName(),
       password: faker.internet.password(),
-      birthDate: faker.date.birthdate().toISOString(),
+      birthDate: faker.date.birthdate(),
       city: faker.location.city(),
       country: faker.location.country(),
       ...override,
