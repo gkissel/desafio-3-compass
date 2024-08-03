@@ -6,7 +6,7 @@ import express from 'express'
 import * as swaggerUi from 'swagger-ui-express'
 
 import { env } from './infra/env'
-import routes from './infra/http/controllers/user/routes'
+import routes from './infra/http/controllers/routes'
 import swaggerDocs from './swagger-output.json'
 
 export const app = express()
