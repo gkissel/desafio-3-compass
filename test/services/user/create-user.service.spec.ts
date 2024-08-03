@@ -19,7 +19,6 @@ describe('This is a simple test', () => {
     sut = new CreateUserService(inMemoryUsersRepository, fakeHasher)
   })
   it('should be able to register a new user', async () => {
-    console.log('test')
     const result = await sut.execute({
       email: faker.internet.email(),
       firstName: faker.person.firstName(),
