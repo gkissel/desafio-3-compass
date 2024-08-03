@@ -1,6 +1,7 @@
 import { Either, left, right } from '@/core/either'
 import { User } from '@/domain/challenge/enterprise/user'
 
+import { HashGenerator } from '../../cryptography/hash-generator'
 import { UsersRepository } from '../../repositories/user.repository'
 import { PasswordsNotMatchError } from '../errors/passwords-not-match'
 import { UserAlreadyExistsError } from '../errors/user-already-exists'
@@ -25,7 +26,10 @@ type CreateUserServiceResponse = Either<
 >
 
 export class CreateUserService {
-  constructor(private usersRepository: UsersRepository) {}
+  constructor(
+    private usersRepository: UsersRepository,
+    private hashGenerator: HashGenerator,
+  ) {}
 
   async execute({
     birthDate,
@@ -46,6 +50,7 @@ export class CreateUserService {
     if (userAlreadyExists) {
       return left(new UserAlreadyExistsError(email))
     }
+    const hashedPassword = await this.hashGenerator.hash(password)
 
     const user = User.create({
       birthDate,
@@ -54,7 +59,7 @@ export class CreateUserService {
       email,
       firstName,
       lastName,
-      password,
+      password: hashedPassword,
     })
 
     await this.usersRepository.create(user)
