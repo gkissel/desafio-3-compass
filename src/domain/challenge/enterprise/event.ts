@@ -1,7 +1,7 @@
 import { Entity } from '@/core/entities/entity'
 import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 
-type weekDay =
+export type DayOfWeek =
   | 'sunday'
   | 'monday'
   | 'tuesday'
@@ -12,7 +12,7 @@ type weekDay =
 
 interface EventProps {
   description: string
-  dayOfWeek: weekDay
+  dayOfWeek: DayOfWeek
 
   userId: UniqueEntityID
 }
