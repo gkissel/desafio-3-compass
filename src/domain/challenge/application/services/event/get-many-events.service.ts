@@ -7,8 +7,8 @@ import { EventsRepository } from '../../repositories/events.repository'
 import { UsersRepository } from '../../repositories/user.repository'
 
 interface GetManyEventsServiceRequest {
-  dayOfWeek: DayOfWeek
-  description: string
+  dayOfWeek?: DayOfWeek
+  description?: string
 
   userId: string
 }
