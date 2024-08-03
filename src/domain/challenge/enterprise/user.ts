@@ -4,7 +4,7 @@ import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 export interface UserProps {
   firstName: string
   lastName: string
-  birthDate: string
+  birthDate: Date
   city: string
   country: string
   email: string
@@ -20,7 +20,7 @@ export class User extends Entity<UserProps> {
     return this.props.lastName
   }
 
-  get birthDate(): string {
+  get birthDate(): Date {
     return this.props.birthDate
   }
 

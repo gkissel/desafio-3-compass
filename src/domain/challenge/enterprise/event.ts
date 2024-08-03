@@ -10,7 +10,7 @@ export type DayOfWeek =
   | 'friday'
   | 'saturday'
 
-interface EventProps {
+export interface EventProps {
   description: string
   dayOfWeek: DayOfWeek
 

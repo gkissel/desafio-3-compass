@@ -53,7 +53,7 @@ export class CreateUserService {
     const hashedPassword = await this.hashGenerator.hash(password)
 
     const user = User.create({
-      birthDate,
+      birthDate: new Date(birthDate),
       city,
       country,
       email,
