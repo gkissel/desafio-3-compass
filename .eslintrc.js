@@ -5,6 +5,7 @@ module.exports = {
   rules: {
     'simple-import-sort/imports': 'error',
     'react/jsx-filename-extension': 'off',
+    'no-useless-constructor': 'off',
   },
   ignorePatterns: ['package.json'],
 }
