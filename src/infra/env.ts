@@ -8,4 +8,12 @@ const envSchema = j.object({
   JWT_SECRET: j.string,
 })
 
-export const { value } = envSchema.validate(process.env)
+// Odeio Joi
+type envType = {
+  PORT: number
+  JWT_SECRET: string
+}
+
+const { value } = envSchema.validate(process.env)
+
+export const env: envType = value

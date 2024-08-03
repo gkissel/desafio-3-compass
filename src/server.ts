@@ -5,8 +5,8 @@ import * as bodyParser from 'body-parser'
 import express from 'express'
 import * as swaggerUi from 'swagger-ui-express'
 
-import { env } from './app/env'
-import routes from './http/controllers/routes'
+import { env } from './infra/env'
+import routes from './infra/http/controllers/user/routes'
 import swaggerDocs from './swagger-output.json'
 
 export const app = express()
