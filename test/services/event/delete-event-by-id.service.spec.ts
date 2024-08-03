@@ -53,6 +53,7 @@ describe('Delete Event Service', () => {
 
   it('should not be able to delete a event if the event not exists', async () => {
     const user = makeUser()
+
     await inMemoryUserRepository.create(user)
 
     const event = makeEvent()
