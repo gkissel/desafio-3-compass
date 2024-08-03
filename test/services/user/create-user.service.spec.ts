@@ -11,7 +11,7 @@ let sut: CreateUserService
 let inMemoryUsersRepository: InMemoryUsersRepository
 let fakeHasher: FakeHasher
 
-describe('This is a simple test', () => {
+describe('Create User Service', () => {
   beforeEach(async () => {
     inMemoryUsersRepository = new InMemoryUsersRepository()
     fakeHasher = new FakeHasher()
