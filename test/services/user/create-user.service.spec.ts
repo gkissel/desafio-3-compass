@@ -3,7 +3,7 @@ import { FakeHasher } from '@test/cryptography/fake-hasher'
 import { makeUser } from '@test/factories/make-user'
 import { InMemoryUsersRepository } from '@test/repositories/in-memory-users.repository'
 
-import { PasswordsDidNotMatchError } from '@/domain/challenge/application/services/errors/passwords-did-not-match'
+import { PasswordsNotMatchError } from '@/domain/challenge/application/services/errors/passwords-not-match'
 import { UserAlreadyExistsError } from '@/domain/challenge/application/services/errors/user-already-exists'
 import { CreateUserService } from '@/domain/challenge/application/services/user/create-user.service'
 
@@ -91,6 +91,6 @@ describe('Create User Service', () => {
     })
 
     expect(result.isLeft()).toBe(true)
-    expect(result.value).toEqual(new PasswordsDidNotMatchError())
+    expect(result.value).toEqual(new PasswordsNotMatchError())
   })
 })
