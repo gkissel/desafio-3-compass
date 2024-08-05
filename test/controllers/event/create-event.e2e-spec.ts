@@ -12,7 +12,7 @@ describe('Create  event (e2e)', () => {
   const userFactory = new UserFactory(prisma)
 
   const jwtEncrypter = new JwtEncrypter()
-  it('should be able to authenticate', async () => {
+  it('should be able to create a event', async () => {
     const user = await userFactory.makePrismaUser({
       password: await hash('123456', 8),
     })
@@ -28,8 +28,6 @@ describe('Create  event (e2e)', () => {
         'Authorization',
         `Bearer ${await jwtEncrypter.encrypt({ sub: user.id.toString() })}`,
       )
-
-    console.log(response.body)
 
     expect(response.statusCode).toEqual(201)
   })
