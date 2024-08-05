@@ -1,7 +1,7 @@
 import { Either, left, right } from '@/core/either'
 import { UniqueEntityID } from '@/core/entities/unique-entity-id'
 import { NotAllowedError } from '@/core/errors/not-allowed-error'
-import { DayOfWeek } from '@/domain/challenge/enterprise/event'
+import { DayOfWeek, Event } from '@/domain/challenge/enterprise/event'
 
 import { EventsRepository } from '../../repositories/events.repository'
 import { UsersRepository } from '../../repositories/user.repository'
@@ -12,7 +12,12 @@ interface DeleteManyEventsServiceRequest {
   userId: string
 }
 
-type DeleteManyEventsServiceResponse = Either<NotAllowedError, null>
+type DeleteManyEventsServiceResponse = Either<
+  NotAllowedError,
+  {
+    deletedEvents: Event[]
+  }
+>
 
 export class DeleteManyEventsService {
   constructor(
@@ -36,6 +41,6 @@ export class DeleteManyEventsService {
 
     events.map(async (event) => await this.eventsRepository.delete(event))
 
-    return right(null)
+    return right({ deletedEvents: events })
   }
 }
