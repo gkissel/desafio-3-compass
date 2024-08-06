@@ -2,7 +2,7 @@ FROM node:20-slim AS base
 ENV PNPM_HOME="/pnpm"
 ENV PATH="$PNPM_HOME:$PATH"
 RUN apt-get update -y && apt-get install -y openssl
-RUN apt-get install -y build-essential libpq-dev
+# RUN apt-get install -y build-essential libpq-dev
 RUN corepack enable
 COPY . ./
 WORKDIR ./
