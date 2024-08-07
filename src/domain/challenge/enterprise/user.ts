@@ -9,6 +9,7 @@ export interface UserProps {
   country: string
   email: string
   password: string
+  avatarUrl?: string | null
 }
 
 export class User extends Entity<UserProps> {
@@ -38,6 +39,14 @@ export class User extends Entity<UserProps> {
 
   get password(): string {
     return this.props.password
+  }
+
+  get avatarUrl(): string | undefined | null {
+    return this.props.avatarUrl
+  }
+
+  set avatarUrl(value: string | undefined | null) {
+    this.props.avatarUrl = value
   }
 
   static create(props: UserProps, id?: UniqueEntityID) {
