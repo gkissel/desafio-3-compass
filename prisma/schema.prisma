@@ -32,6 +32,8 @@ model User {
   city      String
   country   String
 
+  avatarUrl String?
+
   email    String  @unique
   password String
   Event    Event[]
