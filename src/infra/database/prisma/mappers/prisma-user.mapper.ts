@@ -14,6 +14,8 @@ export class PrismaUserMapper {
 
         birthDate: raw.birthDate,
 
+        avatarUrl: raw.avatarUrl,
+
         city: raw.city,
         country: raw.country,
       },
@@ -28,6 +30,7 @@ export class PrismaUserMapper {
       lastName: user.lastName,
       email: user.email,
 
+      avatarUrl: user.avatarUrl,
       password: user.password,
       birthDate: user.birthDate,
       city: user.city,
